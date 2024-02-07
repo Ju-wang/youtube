@@ -2,4 +2,9 @@ extends base.pug
 
 
 block content 
-    h1 Watch Video
+    if video.views < 2
+        h3 #{video.views} view 
+    else 
+        h3 #{video.views} views 
+
+    a(href=`${video.id}/edit`) Edit Video &rarr;

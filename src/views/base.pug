@@ -3,6 +3,16 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title #{pageTitle} | WETUBE
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body 
-        block content
+        header 
+            h1=pageTitle
+            nav 
+                ul 
+                    li 
+                        a(href="/") Home
+                    li
+                        a(href="/videos/upload") Upload
+        main
+            block content
     include partials/footer.pug  
