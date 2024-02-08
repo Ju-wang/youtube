@@ -3,7 +3,8 @@ include mixins/video
 
 
 block content 
-    h2 Welcome here you will see trending videos
     ul 
         each data in videos
             +video(data)
+        else 
+            h3 Sorry Nothing Found
