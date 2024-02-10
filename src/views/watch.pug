@@ -2,9 +2,10 @@ extends base.pug
 
 
 block content 
-    if video.views < 2
-        h3 #{video.views} view 
-    else 
-        h3 #{video.views} views 
+    div 
+        p=video.description
+        h3=video.hashtags
+        small=video.createdAt
+
 
     a(href=`${video.id}/edit`) Edit Video &rarr;
