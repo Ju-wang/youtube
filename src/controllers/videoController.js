@@ -11,7 +11,7 @@ export const handleWatch = async (req, res) => {
     if(video){
         return res.render("watch", {pageTitle:video.title, video})
     }else{
-        return res.render("404", {pageTitle:"Nothing Found."})
+        return res.status(400).render("404", {pageTitle:"Nothing Found."})
     }
 }
 
@@ -24,7 +24,7 @@ export const getEdit = async (req, res) => {
             video
         })
     }else{
-        return res.render("404", {pageTitle:"Nothing Found."})
+        return res.status(400).render("404", {pageTitle:"Nothing Found."})
     }
 }
 
@@ -40,7 +40,7 @@ export const postEdit = async (req, res) => {
         })
         return res.redirect(`/videos/${id}`)
     } else{
-        return res.render("404")
+        return res.status(400).render("404")
     }  
 }
 
@@ -61,7 +61,7 @@ export const postUpload = async (req, res) => {
         return res.redirect("/")
     } catch(error){
         console.log(error);
-        return res.render("upload", {
+        return res.status(400).render("upload", {
             pageTitle: "Upload Video"
         })
     }

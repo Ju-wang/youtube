@@ -6,13 +6,21 @@ html(lang="en")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body 
         header 
+            if locals.loggedIn
+                h3 Hi #{locals.loggedInUser}
             h1=pageTitle
             nav 
                 ul 
                     li 
                         a(href="/") Home
-                    li 
-                        a(href="/join") Join
+                    if !locals.loggedIn
+                        li 
+                            a(href="/login") Login
+                        li 
+                            a(href="/join") Join
+                    else
+                        li 
+                            a(href="/logout") Log Out
                     li
                         a(href="/search") Search
                     li
