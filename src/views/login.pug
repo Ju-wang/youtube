@@ -6,8 +6,10 @@ block content
     form(method="POST")
         input(name="email", type="email", placeholder="Email", required)
         input(name="password", type="password", placeholder="Password",required)
-        input(type="submit", value="login")
+        input(type="submit", value="Login")
+        br
+        a(href="/users/github/start") Continue With Github &rarr;
     hr
     div 
-        span Dosen't have an account?
+        span Dosen't have an account? 
         a(href="/login") Creat now &rarr;
