@@ -52,7 +52,6 @@ export const postLogin = async (req, res) => {
             errorMessage:"Wrong Password"
         })
     } 
-    console.log(savedUser);
     req.session.loggedIn = true
     req.session.user = savedUser.username
     req.session.email = savedUser.email
@@ -157,6 +156,9 @@ export const postEdit = async (req, res) => {
         username,
         email
     })
+    if(file){
+        req.session.avatarUrl = file.path
+    }
     req.session.username = username
     req.session.email = email
     return res.redirect("/users/edit")

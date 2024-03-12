@@ -2,7 +2,9 @@ extend base.pug
 
 block content 
     h3 Upload Video
-    form(method="POST")
+    form(method="POST", enctype="multipart/form-data")
+        label(for="video") Video File
+        input(id="video", type="file", accept="video/*", required, name="video")
         input(type="text", placeholder="Title", name="title", required)
         input(type="text", placeholder="Description", name="description", required)
         input(type="text", placeholder="Hashtags, separated by comma.", name="hashtags", required)

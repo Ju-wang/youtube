@@ -1,11 +1,11 @@
 import express from "express"
 import { getEdit, handleRemove, logout, handleSee, handleGithubLogin, handleGithubCallback, postEdit, getChangePassword, postChangePassword } from "../controllers/userController"
-import { protectorMiddleware, publicOnlyMiddleware, uploadFiles } from "../middlewares"
+import { protectorMiddleware, publicOnlyMiddleware, avatarUpload } from "../middlewares"
 
 const userRouter = express.Router()
 
 
-userRouter.route("/edit").all(protectorMiddleware).get(getEdit).post(uploadFiles.single("avatar"),postEdit)
+userRouter.route("/edit").all(protectorMiddleware).get(getEdit).post(avatarUpload.single("avatar"),postEdit)
 userRouter.get("/remove", handleRemove)
 userRouter.get("/logout",protectorMiddleware, logout)
 userRouter.get(":id(\\d+)", handleSee)
